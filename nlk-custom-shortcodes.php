@@ -4,7 +4,7 @@
    /*
    Plugin Name: NLK Helpful Shorts
    Plugin URI: http://ninthlink.com
-   Description: Adds shortcode for <code>[get_bloginfo show="url"]</code> as per <a href="https://codex.wordpress.org/Function_Reference/get_bloginfo" target="_blank">WordPress Codex</a>. Also automatically enables use of Shortcodes in Widget areas.
+   Description: Adds shortcode for <code>[get_bloginfo show="url"]</code> as per <a href="https://codex.wordpress.org/Function_Reference/get_bloginfo" target="_blank">WordPress Codex</a>. Also automatically enables use of Shortcodes in Widget areas. Includes multiple additional scripts and shortcodes.
    Version: 1.0
    Author: Tim Spinks
    Author URI: http://ninthlink.com
@@ -73,7 +73,8 @@ endif;
 
 if ( !function_exists('nlk_custom_scripts') ) {
 	function nlk_custom_scripts() {
-		wp_enqueue_script( 'jquery.cookie', NLK_CUSTOM_SHORTS_PLUGIN_URL .'/js/jquery.cookie.js', array('jquery'), '1.4.1', true );
+		if ( ! wp_script_is('jquery.cookie.js', 'enqueued') )
+			wp_enqueue_script( 'jquery.cookie.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'/js/jquery.cookie.js', array('jquery'), '1.4.1', true );
 		wp_enqueue_script( 'nlk.custom.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'/js/nlk-custom-scripts.js', array('jquery', 'jquery.cookie'), '1.0', true );
 	}
 }
