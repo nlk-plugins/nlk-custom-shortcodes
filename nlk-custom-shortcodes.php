@@ -74,8 +74,8 @@ endif;
 if ( !function_exists('nlk_custom_scripts') ) {
 	function nlk_custom_scripts() {
 		if ( ! wp_script_is('jquery.cookie.js', 'enqueued') )
-			wp_enqueue_script( 'jquery.cookie.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'/js/jquery.cookie.js', array('jquery'), '1.4.1', true );
-		wp_enqueue_script( 'nlk.custom.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'/js/nlk-custom-scripts.js', array('jquery', 'jquery.cookie'), '1.0', true );
+			wp_enqueue_script( 'jquery.cookie.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'js/jquery.cookie.js', array('jquery'), '1.4.1', true );
+		wp_enqueue_script( 'nlk.custom.js', NLK_CUSTOM_SHORTS_PLUGIN_URL .'js/nlk-custom-scripts.js', array('jquery', 'jquery.cookie'), '1.0', true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nlk_custom_scripts');
